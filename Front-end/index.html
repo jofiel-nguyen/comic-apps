@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Wren Apps</title>
+    <link rel="stylesheet" href="../Front-end/assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <!-- Begin Nav -->
+            <ul id="nav">
+                <li><a href="">Home</a></li>
+                <li>
+                    <a href="">Categories <i class="fas fa-angle-down"></i></a>
+                    <ul class="subnav">
+                        <li><a href="">Action</a></li>
+                        <li><a href="">Adventure</a></li>
+                        <li><a href="">Comedy</a></li>
+                    </ul>
+                </li>
+                <li><a href="">History</a></li>
+                <li><a href="">Hot Comic</a></li>
+                <li>
+                    <a href="">More <i class="fas fa-angle-down"></i></a>
+                    <ul class="subnav">
+                        <li><a href="">Top Week</a></li>
+                        <li><a href="">Top Month</a></li>
+                        <li><a href="">Top Year</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- End Nav -->
+            <!-- Begin Search -->
+            <div class="search-btn">
+                <input type="search" id="search-input" placeholder="Search comics...">
+                <button type="submit" id="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <!-- End Search -->
+        </div>
+
+        <div id="slider">
+            <!-- Add your slider content here -->
+            <h1>Welcome to Comic Wren Apps</h1>
+            <div id="slider">
+                <div class="slider-item">
+                    <img src="comic1.jpg" alt="Comic 1">
+                    <h2>Comic 1 Title</h2>
+                    <p>Chapter 1</p>
+                    <p>Review: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="slider-item">
+                    <img src="comic2.jpg" alt="Comic 2">
+                    <h2>Comic 2 Title</h2>
+                    <p>Chapter 3</p>
+                    <p>Review: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <!-- Add more slider items as needed -->
+            </div>
+            
+        </div>
+
+        <div id="content">
+            <section class="popular-comics">
+                <h2>Popular Comics</h2>
+                <div class="comic-grid">
+                    <!-- Add your popular comic cards here -->
+                    <div class="comic-card">
+                        <img src="comic1.jpg" alt="Comic 1">
+                        <h3>Comic 1</h3>
+                        <p>Author: John Doe</p>
+                    </div>
+                    <div class="comic-card">
+                        <img src="comic2.jpg" alt="Comic 2">
+                        <h3>Comic 2</h3>
+                        <p>Author: Jane Smith</p>
+                    </div>
+                    <!-- Add more comic cards as needed -->
+                </div>
+            </section>
+
+            <section class="latest-releases">
+                <h2>Latest Releases</h2>
+                <div class="comic-grid">
+                    <!-- Add your latest release comic cards here -->
+                    <div class="comic-card">
+                        <img src="comic3.jpg" alt="Comic 3">
+                        <h3>Comic 3</h3>
+                        <p>Author: Michael Johnson</p>
+                    </div>
+                    <div class="comic-card">
+                        <img src="comic4.jpg" alt="Comic 4">
+                        <h3>Comic 4</h3>
+                        <p>Author: Emily Wilson</p>
+                    </div>
+                    <!-- Add more comic cards as needed -->
+                </div>
+            </section>
+        </div>
+
+        <div id="footer">
+            <p>Comic Wren Apps &copy; 2023. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+   
+</body>
+</html>
