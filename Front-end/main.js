@@ -14,7 +14,7 @@ function openModal(pdfUrl) {
     modal.style.display = "none";
     modalPdf.src = "";
   }
-  // main.js
+  
 
 // Function to handle the search button click event
 function handleSearch() {
