@@ -82,3 +82,19 @@ function handleCardClick(event) {
   console.log('Author:', comicAuthor);
   // Add your card click logic here
 }
+function openModal(pdfUrl) {
+    var modal = document.getElementById("myModal");
+    var modalPdf = document.getElementById("modalPdf");
+    
+    modal.style.display = "block";
+    modalPdf.src = pdfUrl;
+  }
+  
+  function closeModal() {
+    var modal = document.getElementById("myModal");
+    var modalPdf = document.getElementById("modalPdf");
+    
+    modal.style.display = "none";
+    modalPdf.src = "";
+  }
+  
