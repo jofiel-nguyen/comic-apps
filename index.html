@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comic Wren Apps</title>
-    <link rel="stylesheet" href="./Front-end//assets/styles.css">
+    <link rel="stylesheet" href="./Front-end/assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
@@ -42,24 +42,27 @@
             </div>
             <!-- End Search -->
         </div>
+        <h1>Welcome to Comic Wren Apps</h1>
 
         <div id="slider">
-            <!-- Add your slider content here -->
-            <h1>Welcome to Comic Wren Apps</h1>
-            <div id="slider">
+            
+
+            <div id="slider1">
                 <div class="slider-item">
-                    <img src="./Front-end/assets/images/Conan-Detective/ep1.png" alt="Ep 1" onclick="openModal('./assets/images/Conan-Detective/ep1-english.pdf')">
+                    <img src="./Front-end/assets/images/Conan-Detective/ep1.png" alt="Ep 1" onclick="openModal('./Front-end/assets/images/Conan-Detective/ep1-english.pdf')">
                     <h2>Conan Detective</h2>
                     <p>Chapter 1</p>
                     <p>Review: "Detective Conan" combines elements of mystery, suspense, and occasional humor. It has gained popularity for its intricate plotlines, intriguing cases, and the ongoing mystery surrounding the Black Organization. The series has spawned multiple movies, spin-off manga, and a dedicated fan base both in Japan and internationally.</p>
-                  </div>
-                  
-                  <!-- The modal -->
-                  <div id="myModal" class="modal">
+                </div>
+                
+                <!-- The modal -->
+                <div id="myModal" class="modal">
                     <span class="close" onclick="closeModal()">&times;</span>
                     <iframe id="modalPdf" class="modal-content" width="80%" height="80%"></iframe>
                 </div>
-                  
+            </div>
+            
+            <div id="slider2">
                 <div class="slider-item">
                     <img src="comic2.jpg" alt="Comic 2">
                     <h2>Comic 2 Title</h2>
@@ -68,7 +71,6 @@
                 </div>
                 <!-- Add more slider items as needed -->
             </div>
-            
         </div>
 
         <div id="content">
@@ -107,6 +109,10 @@
                     <!-- Add more comic cards as needed -->
                 </div>
             </section>
+            <section class ="searchresults">
+                <h2>Search Results</h2>
+                <div id="search-results"></div>
+            </section>
         </div>
 
         <div id="footer">
@@ -114,7 +120,6 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
-   
+    <script src="./Front-end/main.js"></script>
 </body>
 </html>
