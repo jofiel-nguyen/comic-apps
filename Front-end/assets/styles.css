@@ -173,7 +173,13 @@ a {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  flex-basis: calc(100% - 20px); /* Set the width of each comic card to 50% with a 10px gap in between */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
 }
+
 
 .comic-card img {
   max-width: 100%;
