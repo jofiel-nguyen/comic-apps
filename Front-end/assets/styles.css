@@ -1,243 +1,177 @@
-/* Reset CSS */
+/* Reset default styles */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  font-family: Arial, Helvetica, sans-serif;
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f7f7f7;
 }
 
-/* Header Styles */
+#main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Header styles */
 #header {
-  height: 60px;
-  background-color: darkblue;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  color: #fff;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
 }
 
 #nav {
   list-style: none;
-  display: flex;
-  align-items: center;
 }
 
 #nav li {
-  position: relative;
+  display: inline-block;
+  margin-right: 10px;
 }
 
-#nav > li > a {
-  color: #fff;
-  text-decoration: none;
-  line-height: 60px;
-  padding: 0 20px;
-  display: block;
+#nav a {
+  padding: 5px;
 }
 
-#nav > li > a:hover {
-  background-color: #666;
-}
-
-#nav .nav-arrow-down {
-  font-size: 12px;
-  margin-left: 5px;
-}
-
-#nav .subnav {
+.subnav {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 160px;
-  background-color: #333;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
-#nav .subnav li {
+.subnav li {
   display: block;
-}
-
-#nav .subnav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  display: block;
-}
-
-#nav .subnav a:hover {
-  background-color: #666;
+  margin-bottom: 5px;
 }
 
 #nav li:hover .subnav {
   display: block;
 }
 
-/* Slider Styles */
-#slider {
-  min-height: 500px;
-  background-color: #333;
+.search-btn {
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: #fff;
 }
 
-#slider h1 {
-  font-size: 36px;
-  text-align: center;
+#search-input {
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ccc;
+}
+
+#search-button {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+/* Slider styles */
+#slider {
+  margin-top: 20px;
 }
 
 .slider-item {
   text-align: center;
   padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .slider-item img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
-}
-
-/* Content Styles */
-#content {
-  padding: 40px;
-}
-
-#content h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-#content p {
-  margin-bottom: 15px;
-}
-
-/* Footer Styles */
-#footer {
-  height: 60px;
-  background-color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-
-#footer p {
-  font-size: 14px;
-}
-
-/* Search Button Styles */
-.search-btn {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 10px;
-}
-
-#search-input {
-  padding: 6px;
-  border: none;
-  border-radius: 3px;
-  font-size: 14px;
-}
-
-#search-button {
-  padding: 6px 12px;
-  background-color: #333;
-  border: none;
-  border-radius: 3px;
-  color: #fff;
   cursor: pointer;
 }
 
-#search-button i {
-  margin-right: 5px;
-}
-
+/* Modal styles */
 .modal {
   display: none;
   position: fixed;
-  z-index: 9999;
-  padding-top: 50px;
+  z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
-  display: block;
-  margin: auto;
-  max-width: 90%;
-  max-height: 90%;
-  width: 80vw;  /* Adjust the width as needed */
-  height: 80vh;  /* Adjust the height as needed */
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 .close {
   color: #fff;
+  font-size: 30px;
+  font-weight: bold;
   position: absolute;
   top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
+  right: 20px;
   cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
+/* Content styles */
+#content {
+  margin-top: 20px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  #nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.popular-comics, .latest-releases {
+  margin-bottom: 40px;
+}
 
-  #nav li {
-    margin-bottom: 10px;
-  }
+.comic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-  #nav > li > a {
-    padding: 10px 20px;
-  }
+.comic-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  #nav .subnav {
-    top: 0;
-    left: 100%;
-    min-width: 200px;
-  }
+.comic-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
 
-  #slider {
-    height: 300px;
-  }
-
-  #slider h1 {
-    font-size: 28px;
-  }
-
-  #content {
-    padding: 20px;
-  }
-
-  #footer {
-    height: 80px;
-  }
-
-  #footer p {
-    font-size: 12px;
-  }
-
-  #search-input,
-  #search-button {
-    font-size: 12px;
-  }
+/* Footer styles */
+#footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
 }
