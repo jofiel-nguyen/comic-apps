@@ -1,0 +1,80 @@
+/* action.css */
+
+/* Reset default margin and padding */
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header */
+#header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Page title */
+h1 {
+  margin: 20px 0;
+}
+
+/* Content section */
+#content {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Action comic grid */
+.action-comic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.comic-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.comic-card-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  height: 100%; 
+}
+.comic-card {
+  width: 200px;
+  height: 400px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+
+/* Footer */
+#footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
