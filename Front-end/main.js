@@ -14,8 +14,7 @@ function openModal(pdfUrl) {
     modal.style.display = "none";
     modalPdf.src = "";
   }
-  
-
+  //Handle for Search
 // Function to handle the search button click event
 function handleSearch() {
   var searchInput = document.getElementById("search-input").value;
@@ -39,6 +38,13 @@ function handleSearch() {
           var title = item.volumeInfo.title;
           var authors = item.volumeInfo.authors ? item.volumeInfo.authors.join(", ") : "Unknown Author";
           var thumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "No Image";
+          var previewLink = item.volumeInfo.previewLink;
+
+          // Create a link element around each search result card
+          var link = document.createElement("a");
+          link.href = previewLink;
+          link.target = "_blank"; // Open the link in a new tab
+          link.classList.add("search-result-link");
 
           // Create a card for each search result
           var card = document.createElement("div");
@@ -58,7 +64,8 @@ function handleSearch() {
           card.appendChild(titleElement);
           card.appendChild(authorElement);
 
-          searchResults.appendChild(card);
+          link.appendChild(card);
+          searchResults.appendChild(link);
         }
       } else {
         // No search results found
@@ -71,7 +78,7 @@ function handleSearch() {
       console.log(error);
     });
 }
-
+//Popular Book
 // Add event listener to the search button
 var searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", handleSearch);
@@ -84,20 +91,10 @@ fetch(popularComicsApiUrl)
   .then(data => {
     const popularComicsGrid = document.getElementById('popular-comics-grid');
     data.items.forEach(item => {
-      const comicCard = document.createElement('div');
-      comicCard.classList.add('comic-card');
-      
-      const thumbnail = item.volumeInfo.imageLinks?.thumbnail || 'placeholder.jpg';
-      const title = item.volumeInfo.title || 'Unknown Title';
-      const authors = item.volumeInfo.authors || ['Unknown Author'];
-      
-      comicCard.innerHTML = `
-        <img src="${thumbnail}" alt="${title}">
-        <h3>${title}</h3>
-        <p>Author: ${authors.join(', ')}</p>
-      `;
-      
-      popularComicsGrid.appendChild(comicCard);
+      const comicCard = createComicCard(item);
+      const link = createLink(item.volumeInfo.previewLink);
+      link.appendChild(comicCard);
+      popularComicsGrid.appendChild(link);
     });
   })
   .catch(error => {
@@ -111,22 +108,39 @@ fetch(latestReleasesApiUrl)
   .then(data => {
     const latestReleasesGrid = document.querySelector('.latest-releases .comic-grid');
     data.items.forEach(item => {
-      const comicCard = document.createElement('div');
-      comicCard.classList.add('comic-card');
-
-      const thumbnail = item.volumeInfo.imageLinks?.thumbnail || 'placeholder.jpg';
-      const title = item.volumeInfo.title || 'Unknown Title';
-      const authors = item.volumeInfo.authors || ['Unknown Author'];
-
-      comicCard.innerHTML = `
-        <img src="${thumbnail}" alt="${title}">
-        <h3>${title}</h3>
-        <p>Author: ${authors.join(', ')}</p>
-      `;
-
-      latestReleasesGrid.appendChild(comicCard);
+      const comicCard = createComicCard(item);
+      const link = createLink(item.volumeInfo.previewLink);
+      link.appendChild(comicCard);
+      latestReleasesGrid.appendChild(link);
     });
   })
   .catch(error => {
     console.error('Error fetching data for latest releases:', error);
   });
+
+// Function to create a comic card element
+function createComicCard(item) {
+  const comicCard = document.createElement('div');
+  comicCard.classList.add('comic-card');
+
+  const thumbnail = item.volumeInfo.imageLinks?.thumbnail || 'placeholder.jpg';
+  const title = item.volumeInfo.title || 'Unknown Title';
+  const authors = item.volumeInfo.authors || ['Unknown Author'];
+
+  comicCard.innerHTML = `
+    <img src="${thumbnail}" alt="${title}">
+    <h3>${title}</h3>
+    <p>Author: ${authors.join(', ')}</p>
+  `;
+
+  return comicCard;
+}
+
+// Function to create a link element
+function createLink(url) {
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank'; // Open the link in a new tab
+  link.classList.add('comic-card-link');
+  return link;
+}
