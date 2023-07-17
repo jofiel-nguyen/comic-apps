@@ -75,15 +75,13 @@ function handleSearch() {
 // Add event listener to the search button
 var searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", handleSearch);
-// Make sure to replace 'YOUR_API_KEY' with your actual Google Books API key
-const apiKey = 'AIzaSyDzj3i_4Ho9MPwpz4dtGO4pJGjt1zQaXDk';
-const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=comics&key=${apiKey}`;
+const apiKey = 'AIzaSyBMAujdF-hgQ4Vgax5pFHQgELyycP3tmW4';
 
-// Perform a fetch request to the Google Books API
-fetch(apiUrl)
+// Fetch popular comics data
+const popularComicsApiUrl = `https://www.googleapis.com/books/v1/volumes?q=comics&key=${apiKey}`;
+fetch(popularComicsApiUrl)
   .then(response => response.json())
   .then(data => {
-    // Process the response data and generate the comic cards dynamically
     const popularComicsGrid = document.getElementById('popular-comics-grid');
     data.items.forEach(item => {
       const comicCard = document.createElement('div');
@@ -103,5 +101,32 @@ fetch(apiUrl)
     });
   })
   .catch(error => {
-    console.error('Error fetching data from Google Books API:', error);
+    console.error('Error fetching data for popular comics:', error);
+  });
+
+// Fetch latest releases data
+const latestReleasesApiUrl = `https://www.googleapis.com/books/v1/volumes?q=latest&key=${apiKey}`;
+fetch(latestReleasesApiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const latestReleasesGrid = document.querySelector('.latest-releases .comic-grid');
+    data.items.forEach(item => {
+      const comicCard = document.createElement('div');
+      comicCard.classList.add('comic-card');
+
+      const thumbnail = item.volumeInfo.imageLinks?.thumbnail || 'placeholder.jpg';
+      const title = item.volumeInfo.title || 'Unknown Title';
+      const authors = item.volumeInfo.authors || ['Unknown Author'];
+
+      comicCard.innerHTML = `
+        <img src="${thumbnail}" alt="${title}">
+        <h3>${title}</h3>
+        <p>Author: ${authors.join(', ')}</p>
+      `;
+
+      latestReleasesGrid.appendChild(comicCard);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching data for latest releases:', error);
   });
