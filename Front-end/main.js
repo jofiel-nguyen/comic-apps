@@ -43,7 +43,7 @@ function handleSearch() {
           // Create a link element around each search result card
           var link = document.createElement("a");
           link.href = previewLink;
-          link.target = "_blank"; // Open the link in a new tab
+          link.target = "_self"; 
           link.classList.add("search-result-link");
 
           // Create a card for each search result
@@ -135,12 +135,11 @@ function createComicCard(item) {
 
   return comicCard;
 }
-
 // Function to create a link element
 function createLink(url) {
   const link = document.createElement('a');
   link.href = url;
-  link.target = '_blank'; // Open the link in a new tab
+  link.target = '_self'; // Open the link in the same web page
   link.classList.add('comic-card-link');
   return link;
 }
